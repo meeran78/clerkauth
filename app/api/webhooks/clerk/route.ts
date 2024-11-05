@@ -74,7 +74,7 @@ const svix_signature = (await headerPayload).get('svix-signature')
     const newUser = await createUser(user);
 
     if (newUser) {
-      await clerkClient.users.updateUserMetadata(id, {
+      await(await clerkClient()).users.updateUserMetadata(id, {
         publicMetadata: {
           userId: newUser._id,
         },
